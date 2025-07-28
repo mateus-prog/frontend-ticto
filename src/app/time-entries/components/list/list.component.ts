@@ -73,10 +73,13 @@ export class ListComponent implements OnInit {
       date_end: this.date_end || ''
     };
 
+    this.loading = true;
     this.timeEntryService.getAll(filters)
       .forEach((result:any) => {
         this.entries = result['data'];
         this.loaded = true;
+        this.loading = false;
+        this.paginaAtual = 1;
       });
   }
 }

@@ -49,24 +49,30 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th style="width: 40%;">Nome</th>
-                                        <th style="width: 20%; text-align: center;">Data</th>
-                                        <th style="width: 40%; text-align: center;">Hora</th>
+                                        <th style="width: 5%; text-align: center;">ID</th>
+                                        <th style="width: 30%;">Funcionário</th>
+                                        <th style="width: 5%; text-align: center;">Idade</th>
+                                        <th style="width: 20%;">Cargo</th>
+                                        <th style="width: 25%;">Gestor</th>
+                                        <th style="width: 15%; text-align: center;">Registro</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let entry of resultFilter() | paginate: { itemsPerPage: 10, currentPage: paginaAtual }; let i = index">
-                                        <td>{{entry.user}}</td>
-                                        <td style="text-align: center;">{{entry.date}}</td>
-                                        <td style="text-align: center;">{{entry.times}}</td>
+                                        <td style="text-align: center;">{{entry.id}}</td>
+                                        <td>{{entry.employee}}</td>
+                                        <td style="text-align: center;">{{entry.age}}</td>
+                                        <td>{{entry.position}}</td>
+                                        <td>{{entry.manager}}</td>
+                                        <td>{{entry.time}}</td>
                                     </tr>
                                     <tr *ngIf="!entries && !loaded">
-                                        <td colspan="3" class="text-center">
+                                        <td colspan="6" class="text-center">
                                             <span class="spinner-border spinner-border-lg align-center"></span>
                                         </td>
                                     </tr>
                                     <tr *ngIf="entries.length === 0 && loaded">
-                                        <td colspan="3" class="text-center">
+                                        <td colspan="6" class="text-center">
                                             <span class="align-center">Nenhum ponto encontrado.</span>
                                         </td>
                                     </tr>
