@@ -1,0 +1,20 @@
+services:
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - '80:80'  # Mapeia a porta 80 do contêiner para a porta 80 do host
+    volumes:
+      - .:/app  # Monta o diretório do host para desenvolvimento (opcional)
+      - /app/node_modules  # Evitar o mapeamento dos node_modules no host
+    environment:
+      #- NODE_ENV=production  # Define o ambiente como produção
+      - NODE_ENV=dev  # Define o ambiente como produção
+    restart: always  # Reinicia o contêiner em caso de falha
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge
